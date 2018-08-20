@@ -8,7 +8,7 @@ To get IowaIdea up and running, you must have Docker and Docker Compose installe
 ### Building Containers
 Once you have Docker installed, clone the repository.
 
-``` git clone https://github.com/ritstudentgovernment/IowaIdea.git```
+``` git clone https://github.com/uiowa/IowaIdeas```
 
 Next, copy the ```template.env``` file at the root of the project to ```.env``` and fill out the environment variables. When running the application locally, the ```SERVER_ENV``` variable should be set to ```local```. The defaults should be sufficient for running locally.
 
@@ -33,11 +33,3 @@ Before running the script, ensure that the containers are up and grab the name o
 Then to run the script, ```docker exec -it IowaIdea_web_1 python manage.py mockdata```. The script will take a while to run as it generates the mock data.
 
 Finally, to view the app, simply navigate to http://localhost:8000
-
-### More Info
-For more detailed information about setting up the app and other common FAQs, please visit the [wiki](https://github.com/ritstudentgovernment/IowaIdea/wiki).
-
-
-## Contributing
-Feel free to open an issue or submit a pull request!
-If you have found a security issue, please do not open a public issue. Please email sgprod@rit.edu and sgweb@rit.edu with the issue.
