@@ -1,10 +1,12 @@
 version: "3"
 
+services:
+
   worker:
     build: .
     command: python manage.py runworker websocket
     volumes:
-      - .:/IowaIdea
+      - .:/mnt/Storage/code/IowaIdeas
     environment:
       SECRET_KEY: ${SECRET_KEY}
       SERVER_ENV: ${SERVER_ENV}
@@ -20,9 +22,6 @@ version: "3"
       EMAIL_USE_TLS: ${EMAIL_USE_TLS}
       RAVEN_DSN: ${RAVEN_DSN}
       REDIS_URL: ${REDIS_URL}
-    links:
-      - redis
-      - postgres
 
   huey_worker:
     build: .
@@ -43,10 +42,7 @@ version: "3"
       RAVEN_DSN: ${RAVEN_DSN}
       REDIS_URL: ${REDIS_URL}
     volumes:
-      - .:/IowaIdea
-    links:
-      - redis
-      - postgres
+      - .:/mnt/Storage/code/IowaIdeas
 
   web:
     build: .
@@ -67,9 +63,6 @@ version: "3"
       RAVEN_DSN: ${RAVEN_DSN}
       REDIS_URL: ${REDIS_URL}
     volumes:
-      - .:/IowaIdea
+      - .:/mnt/Storage/code/IowaIdeas
     ports:
       - "8000:8000"
-    depends_on:
-      - redis
-      - postgres
