@@ -42,7 +42,7 @@ if os.environ.get('SERVER_ENV','none')  == 'prod':
 
 if os.environ.get('SERVER_ENV', 'none') == 'stage':
     DEBUG = False
-    ALLOWED_HOSTS = ["sgstage.rit.edu"]
+    ALLOWED_HOSTS = ["*"]
 
 # Sentry Settings
 RAVEN_CONFIG = {
@@ -72,7 +72,7 @@ ALWAYS_EAGER = DEBUG
 if os.environ.get('SERVER_ENV', 'none') == 'local':
     DEBUG = True
     ALWAYS_EAGER = False
-    
+
 # Settings for Huey task queue https://huey.readthedocs.io/en/latest/contrib.html#django
 HUEY = {
     'name': 'RedisHueyInstance',  # Use db name for huey.
@@ -99,7 +99,7 @@ HUEY = {
         'health_check_interval': 1,  # Check worker health every second.
     },
 }
-    
+
 AUTHENTICATION_BACKENDS = ['auth.auth_backend.SAMLSPBackend']
 
 ASGI_APPLICATION = 'pawprints.routing.application'
@@ -124,7 +124,7 @@ MIDDLEWARE = [
     'log.ip_log_middleware.IPLogMiddleware',
 ]
 
-ROOT_URLCONF = 'pawprints.urls'
+ROOT_URLCONF = 'iowaidea.urls'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -145,7 +145,7 @@ TEMPLATES = [
 ]
 
 #STATICFILES_DIRS = [STATIC_DIR, ]
-WSGI_APPLICATION = 'pawprints.wsgi.application'
+WSGI_APPLICATION = 'iowaidea.wsgi.application'
 
 
 # Database

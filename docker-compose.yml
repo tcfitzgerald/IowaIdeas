@@ -1,30 +1,10 @@
 version: "3"
 
-services:
-  postgres:
-    image: postgres:alpine
-    container_name: postgres
-    restart: always
-    volumes:
-      - /pawprintsdata/postgres-data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_DB: ${DB_NAME}
-
-  redis:
-    image: redis:alpine
-    restart: always
-    volumes:
-      - /pawprintsdata/redis-data:/data
-    expose:
-      - "6379"
-
   worker:
     build: .
     command: python manage.py runworker websocket
     volumes:
-      - .:/PawPrints
+      - .:/IowaIdea
     environment:
       SECRET_KEY: ${SECRET_KEY}
       SERVER_ENV: ${SERVER_ENV}
@@ -63,14 +43,14 @@ services:
       RAVEN_DSN: ${RAVEN_DSN}
       REDIS_URL: ${REDIS_URL}
     volumes:
-      - .:/PawPrints
+      - .:/IowaIdea
     links:
       - redis
       - postgres
 
   web:
     build: .
-    command: sh -c  "python manage.py migrate && daphne -b 0.0.0.0 -p 8000 pawprints.asgi:application"
+    command: sh -c  "python manage.py migrate && daphne -b 0.0.0.0 -p 8000 IowaIdea.asgi:application"
     environment:
       SECRET_KEY: ${SECRET_KEY}
       SERVER_ENV: ${SERVER_ENV}
@@ -87,7 +67,7 @@ services:
       RAVEN_DSN: ${RAVEN_DSN}
       REDIS_URL: ${REDIS_URL}
     volumes:
-      - .:/PawPrints
+      - .:/IowaIdea
     ports:
       - "8000:8000"
     depends_on:
