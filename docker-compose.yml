@@ -4,9 +4,9 @@ services:
 
   worker:
     build: .
-    command: python manage.py runworker websocket
+    command: python3.6 manage.py runworker websocket
     volumes:
-      - /mnt/Storage/code/IowaIdeas:/iowaidea
+      - .:/iowaidea
     environment:
       SECRET_KEY: ${SECRET_KEY}
       SERVER_ENV: ${SERVER_ENV}
@@ -25,7 +25,7 @@ services:
 
   huey_worker:
     build: .
-    command: python manage.py run_huey
+    command: python3.6 manage.py run_huey
     environment:
       SECRET_KEY: ${SECRET_KEY}
       SERVER_ENV: ${SERVER_ENV}
@@ -42,11 +42,11 @@ services:
       RAVEN_DSN: ${RAVEN_DSN}
       REDIS_URL: ${REDIS_URL}
     volumes:
-      - /mnt/Storage/code/IowaIdeas:/iowaidea
+      - .:/iowaidea
 
   web:
     build: .
-    command: sh -c  "python manage.py migrate && daphne -b 0.0.0.0 -p 8000 IowaIdea.asgi:application"
+    command: sh -c  "python3.6 manage.py migrate && daphne -b 0.0.0.0 -p 8000 IowaIdea.asgi:application"
     environment:
       SECRET_KEY: ${SECRET_KEY}
       SERVER_ENV: ${SERVER_ENV}
@@ -63,6 +63,6 @@ services:
       RAVEN_DSN: ${RAVEN_DSN}
       REDIS_URL: ${REDIS_URL}
     volumes:
-      - /mnt/Storage/code/IowaIdeas:/iowaidea
+      - .:/iowaidea
     ports:
       - "8000:8000"

@@ -35,6 +35,7 @@ if 'TRAVIS' in os.environ:
 
 if os.environ.get('SERVER_ENV', 'none') == 'test':
     DEBUG=True
+    ALLOWED_HOSTS = ["*"]
 
 if os.environ.get('SERVER_ENV','none')  == 'prod':
     DEBUG = False
