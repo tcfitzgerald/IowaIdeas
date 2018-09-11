@@ -17,6 +17,9 @@ Next, copy the ```template.env``` file at the root of the project to ```.env``` 
 Once you have the env file, simply run
 ```docker-compose up``` from the root project directory. This will take a few minutes as it builds the containers.
 
+On Windows, run
+```docker-compose -f docker-compose-windows.yml up``` from the root project directory.
+
 To ensure that all the containers are running, simply run ```docker ps``` you should have an output similar to the following
 ```
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
