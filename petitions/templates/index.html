@@ -1294,7 +1294,7 @@
 </main>
 
 {% if user.first_name and user.profile.has_access == 1 %}
-    <button id="new-petition" class="cursor circle background-highlight bright-text light material-hover transition"><span class="material-icon-container"><i class="material-icons">add</i></span></button>
+    <button id="new-petition" class="cursor circle background-highlight bright-text light material-hover transition"><span class="material-icon-container"><i class="material-icons">add petition</i></span></button>
     <script>
         $(document).ready(function(){
             $("#new-petition").click(function(){
@@ -2129,9 +2129,9 @@
 
                         petition = parseOnePetition(data);
                         if (petition) {
-                          
+
                             if(window.last_paginate){
-                              
+
                                 window.last_paginate.push(petition.id);
 
                             }
