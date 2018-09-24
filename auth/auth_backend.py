@@ -10,10 +10,11 @@ from django.contrib.auth.models import User
 
 
 class Attributes():
-    EDU_AFFILIATION = 'urn:oid:1.3.6.1.4.1.4447.1.41'
+    EDU_AFFILIATION = 'urn:oid:1.3.6.1.4.1.5923.1.1.1.1'
     FIRST_NAME = 'urn:oid:2.5.4.42'
     LAST_NAME = 'urn:oid:2.5.4.4'
-    USERNAME = 'urn:oid:0.9.2342.19200300.100.1.1'
+    MAIL = 'urn:oid:0.9.2342.19200300.100.1.3'
+    USERNAME = 'urn:oid:1.3.6.1.4.1.6159.1.41'
 
 
 class SAMLSPBackend(object):
@@ -27,6 +28,7 @@ class SAMLSPBackend(object):
             username = attributes[Attributes.USERNAME][0]
             first_name = attributes[Attributes.FIRST_NAME][0]
             last_name = attributes[Attributes.LAST_NAME][0]
+            mail = attributes[Attributes.MAIL][0]
             affiliation = attributes.get(Attributes.EDU_AFFILIATION, ['-1'])
 
             try:
@@ -34,7 +36,7 @@ class SAMLSPBackend(object):
                 user = User.objects.get(username=username)
             except User.DoesNotExist:
                 # If user does not exist in DB, Create a user object and save to DB
-                user = User(username=username, email=username + "@rit.edu")
+                user = User(username=username, email=mail)
                 user.set_unusable_password()
 
             user.first_name = first_name
