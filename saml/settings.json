@@ -1,14 +1,14 @@
 {
     "strict": true,
-    "debug": true,
+    "debug": false,
     "sp": {
-        "entityId": "https://pawprints.rit.edu/saml",
+        "entityId": "https://iowaideas-test.iowa.uiowa.edu/saml",
         "assertionConsumerService": {
-            "url": "https://pawprints.rit.edu/acs",
+            "url": "https://iowaideas-test.iowa.uiowa.edu/acs",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
         },
         "singleLogoutService": {
-            "url": "https://pawprints.rit.edu/sls",
+            "url": "https://iowaideas-test.iowa.uiowa.edu/sls",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         },
         "NameIDFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
@@ -16,15 +16,15 @@
         "privateKey": ""
     },
     "idp": {
-        "entityId": "https://shibboleth.main.ad.rit.edu/idp/shibboleth",
+        "entityId": "iowafed-test:idp:uiowa.edu",
         "singleSignOnService": {
-            "url": "https://shibboleth.main.ad.rit.edu/idp/profile/SAML2/Redirect/SSO",
+            "url": "https://idp-test.uiowa.edu/idp/profile/SAML2/Redirect/SSO",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         },
         "singleLogoutService": {
-            "url": "https://shibboleth.main.ad.rit.edu/logout.html",
+            "url": "https://idp-test.uiowa.edu/idp/profile/SAML2/Redirect/SLO",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         },
-        "x509cert":"MIIDVDCCAjygAwIBAgIVAMPFek+px9vIGJ0/+QhwyptEXQqaMA0GCSqGSIb3DQEB BQUAMCUxIzAhBgNVBAMTGnNoaWJib2xldGgubWFpbi5hZC5yaXQuZWR1MB4XDTA4 MTEyNTE4MzU0N1oXDTI4MTEyNTE4MzU0N1owJTEjMCEGA1UEAxMac2hpYmJvbGV0 aC5tYWluLmFkLnJpdC5lZHUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB AQC3LLiBrUjXO+LFsfrk4u5lQ62FfXJEPJnmL6/4WVsOtpLWMQZesuiOlyhFTsTN dlmFp37UTcZ9MJsTeG/1M87BxUnPB22Qn7TPNLh7Oi3QDinVyukPXRl6B/bHdtMh lq5V+E8rNyITaOc7YB6GkNLBOVBRemBcttmlwz5whHWwU/MNdQlBf4/KIu7mV5dp WQrnPvaTk3nle4vOtbPThipD5jiD2r/a4/l5gROJRuLvxQaiNfBfACwowp9R9DHK lpqD4EPSEv2v0RXJyFx4pMi/hnfmSjvIQi9s+J5sKzyNN3JtCzrVO5GSiddO46bR tvp5H/rz0cNpp5rnjz+NRkarAgMBAAGjezB5MFgGA1UdEQRRME+CGnNoaWJib2xl dGgubWFpbi5hZC5yaXQuZWR1hjFodHRwczovL3NoaWJib2xldGgubWFpbi5hZC5y aXQuZWR1L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRJRQ19Vjpa3qktIoVtEqdL onWQFTANBgkqhkiG9w0BAQUFAAOCAQEAmXDiVgm0fmvvhtzYO2GFBIpZNNzd+8ou jnUNTKNAliKToarQvLDTQUENh2L558u3OvwFXlC7hcnGNKin4VjQ/GWps+J7dQ67 gCiYMquyf5i9UE/j5ilriNXmSwzwvB/YPJzEMIFd2XBI550ODeIMf5B0gGx1EMB1 jyWpy4iOZbMCBbGn0Vo2/AeGyiUmT6/qcDnrMTg4fvAqG26kujwPBb42UpkwSo2E OZDp3OGGicpNhWVWca74r8KHYJGNBwXYmZ5ntP5Yfd9cElJKFLS21igLGkhr/o4N Im4Q86WvRXW4cHfy8OB9fEIURxSmGeZMYsd0YLh8ouPlWuLl3hWsyQ=="
+        "x509cert":"MIIDcDCCAligAwIBAgIETg4fVDANBgkqhkiG9w0BAQUFADB6MQswCQYDVQQGEwJVUzELMAkGA1UECBMCSUExEjAQBgNVBAcTCUlvd2EgQ2l0eTEfMB0GA1UEChMWVGhlIFVuaXZlcnNpdHkgb2YgSW93YTEMMAoGA1UECxMDSVRTMRswGQYDVQQDExJpZHAtdGVzdC51aW93YS5lZHUwHhcNMTEwNzAxMTkyNzQ5WhcNMTYwNzAxMTkyNzQ5WjB6MQswCQYDVQQGEwJVUzELMAkGA1UECBMCSUExEjAQBgNVBAcTCUlvd2EgQ2l0eTEfMB0GA1UEChMWVGhlIFVuaXZlcnNpdHkgb2YgSW93YTEMMAoGA1UECxMDSVRTMRswGQYDVQQDExJpZHAtdGVzdC51aW93YS5lZHUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCGTK2zKNlrn7uHC6idtU2ldXFISbXgfjVwAV3mpXY1EQYdIz+nECSB3APZiglfT8evUeHNjsE2ZR4hRv9f5xRTGZoSLEMp+Epo6Vg5wxGt9ypOXBKOWJb0l4+KcrwL8pkAKCWi1X0cRLYkBZrwM+bYngfcA7LU93TFJsVapYRVAtTsxhIHAAMXywMwyMke5LDcm4VIWJ8HRf1XMoqZSvziUJsJ6bmqkPnKdVMTEbyT3yIN8XLdNk2CEhT1Lvh+DwqJ6FVPQ4FAcMyk6peIxAY9p8dws+ghO+OLUXEgmkHrOtTq9rhuFtryPX6dQjG2fBOa/QgYM8KgFkGDJwp5PqKtAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAAWam+fBdc4bhwJ5bymvQE3idTe5Ez1F8KYmc8IYa/qTkHx/gp9JL7Xl+8ffcmNbZwAdiu+19NvseUbWjSyUIXq3YPcFvtMJU4LyIher7vY0uWiWb0EiqXaH9UZC/8iaIncKXgvOzB9SjjIyu8BO0ifcOQ/fsKU3Csy6uFOnu9V7JmAN764shhfJ5jPDME7UhccHcE/PqCRTQrrLJZb1JlppHu9IFxhdEtt46KwjIPseTLXkL/ZrKkBipVukPjTCwFG/DFO5IXjvuRol0TodgX858q5H/BhleoYqz4tth+LebxufXN8k41x3lrIzkIR92/cHtk6RHIUACTQbI3HwQ9U="
     }
 }
