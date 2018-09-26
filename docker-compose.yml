@@ -2,8 +2,19 @@ version: "3"
 
 services:
 
+  redis:
+    build:
+      context: .
+      dockerfile: Dockerfile-Redis
+    command: sh -c redis-server
+    restart: always
+    expose:
+      - "6379"
+
   worker:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile-Web-Worker
     command: python3.6 manage.py runworker websocket
     volumes:
       - .:/iowaidea
@@ -24,7 +35,9 @@ services:
       REDIS_URL: ${REDIS_URL}
 
   huey_worker:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile-Web-Worker
     command: python3.6 manage.py run_huey
     environment:
       SECRET_KEY: ${SECRET_KEY}
@@ -45,7 +58,9 @@ services:
       - .:/iowaidea
 
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile-Web-Worker
     command: sh -c  "python3.6 manage.py migrate && daphne -b 0.0.0.0 -p 8000 iowaidea.asgi:application"
     environment:
       SECRET_KEY: ${SECRET_KEY}
