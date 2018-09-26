@@ -90,15 +90,15 @@ $(document).ready(function(){
             pageSelector: "#wrapper"
         },
         navbar: {
-            title:"PawPrints"
+            title:"IowaIdeas"
         },
         extensions: [
             "pagedim-black"
         ]
     });
     $().smartWebBanner({
-        title: 'PawPrints',
-        author: 'RIT Student Government',
+        title: 'IowaIdeas',
+        author: 'UI Student Government',
         url: '/',
         autoApp: true
     });
